@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <head>
-  <!-- Global Site Tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'GA_TRACKING_ID');
-  </script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <title>WaZaComPany Beta</title>
 <meta charset="utf-8">
+<meta name="google-signin-client_id" content="330764072628-c90akqq0lkrgih63jeto34upunskn7fa.apps.googleusercontent.com">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131534984-1"></script>
@@ -28,12 +21,21 @@ a {
   }
 h4 {text-align: center;}
 </style>
-
+<script>
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+  </script>
 </head>
 
 <body>
-
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
 <h4><a href="index.html"> <img src= "Title.png" width = 30% >INC </a></h4>
+
 <p>
 <ol>
 <li><a href="1.html"> WaZaComPany 소개 </a>
