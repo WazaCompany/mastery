@@ -32,7 +32,7 @@ function onSignIn(googleUser) {
   </script>
 <script>
 
-var CheckLoginStatus = function(response) {
+var checkLoginStatus = function(response) {
   //statusChangeCallback(response);
   console.log(response);
   if (response.status === 'connected'){
@@ -64,7 +64,7 @@ var CheckLoginStatus = function(response) {
  //
  // These three cases are handled in the callback function.
 
- FB.getLoginStatus(CheckLoginStatus);
+ FB.getLoginStatus(checkLoginStatus);
 
 };
   // Load the SDK asynchronously
@@ -79,22 +79,21 @@ var CheckLoginStatus = function(response) {
 </head>
 
 <body>
-<input type="button" id="authBtn" value="Checking..." onclick="
-    if(this.value === 'Login'){
-      //now Logout
-      FB.login(function(res){
-        console.log('Login =>', res);
-        CheckLoginStatus(res);
-  })
-} else {
-  //now login
-  FB.logout(function(res){
-    console.log('Logout =>', res);
-    CheckLoginStatus(res);
-
-})
-}
-">
+  <input type="button" id="authBtn" value="checking..." onclick="
+      if(this.value === 'Login'){
+        // now logout
+        FB.login(function(res){
+          console.log('login =>', res);
+          checkLoginStatus(res);
+        });
+      } else {
+        // now login
+        FB.logout(function(res){
+          console.log('logout =>', res);
+          checkLoginStatus(res);
+        });
+      }
+  ">
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
 <h4><a href="index.html"> <img src= "Title.png" width = 30% >INC </a></h4>
 
